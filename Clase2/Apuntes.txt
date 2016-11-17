@@ -1,0 +1,9 @@
+
+
+REST API frames:
+
+
+
+Recomendados:
+http://resteasy.jboss.org/
+https://jersey.java.net/
