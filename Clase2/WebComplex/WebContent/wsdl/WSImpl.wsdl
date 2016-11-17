@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://ws.java.curso.edu" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://ws.java.curso.edu" xmlns:intf="http://ws.java.curso.edu" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://ws.java.curso.edu" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="recuperarPersonas">
+    <complexType/>
+   </element>
+   <element name="recuperarPersonasResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="recuperarPersonasReturn" type="impl:Persona"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="Persona">
+    <sequence>
+     <element name="apellido" nillable="true" type="xsd:string"/>
+     <element name="id" type="xsd:int"/>
+     <element name="nombre" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <element name="recuperarPersonaPorId">
+    <complexType>
+     <sequence>
+      <element name="idPersona" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="recuperarPersonaPorIdResponse">
+    <complexType>
+     <sequence>
+      <element name="recuperarPersonaPorIdReturn" type="impl:Persona"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="recuperarPersonaPorIdResponse">
+
+      <wsdl:part element="impl:recuperarPersonaPorIdResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="recuperarPersonasRequest">
+
+      <wsdl:part element="impl:recuperarPersonas" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="recuperarPersonasResponse">
+
+      <wsdl:part element="impl:recuperarPersonasResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="recuperarPersonaPorIdRequest">
+
+      <wsdl:part element="impl:recuperarPersonaPorId" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="WSImpl">
+
+      <wsdl:operation name="recuperarPersonas">
+
+         <wsdl:input message="impl:recuperarPersonasRequest" name="recuperarPersonasRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:recuperarPersonasResponse" name="recuperarPersonasResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="recuperarPersonaPorId">
+
+         <wsdl:input message="impl:recuperarPersonaPorIdRequest" name="recuperarPersonaPorIdRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:recuperarPersonaPorIdResponse" name="recuperarPersonaPorIdResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="WSImplSoapBinding" type="impl:WSImpl">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="recuperarPersonas">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="recuperarPersonasRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="recuperarPersonasResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="recuperarPersonaPorId">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="recuperarPersonaPorIdRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="recuperarPersonaPorIdResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="WSImplService">
+
+      <wsdl:port binding="impl:WSImplSoapBinding" name="WSImpl">
+
+         <wsdlsoap:address location="http://localhost:8080/app/services/WSImpl"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
